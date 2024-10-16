@@ -651,7 +651,7 @@ class Chassis {
          * chassis.moveToPose(0, 0, 0, 4000, {.lead = 0.3});
          * @endcode
          */
-        void moveToPose(float x, float y, float theta, int timeout, MoveToPoseParams params = {}, bool async = true);
+        void moveToPose(Pose pose, int timeout, MoveToPoseParams params = {}, bool async = true);
         /**
          * @brief Move the chassis towards a target point
          *

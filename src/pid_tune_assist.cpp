@@ -1,5 +1,6 @@
 #include "pid_tune_assist/pid_tune_assist.h"
 #include "lemlib/api.hpp"
+
 namespace pid_tune_assist {
     // Cycle class template implementation
     template <typename T>
@@ -78,7 +79,7 @@ namespace pid_tune_assist {
             // Check for button B press
             if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
                 isLateralPID_l
-                    ? pidTune->chassis.moveToPose(0, lengths_l.current, 0, 5000, {}, true)
+                    ? pidTune->chassis.moveToPose({0, lengths_l.current, 0}, 5000, {}, true)
                     : pidTune->chassis.turnToHeading(headings_l.current, 5000, {}, true);
             }
             if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)) {

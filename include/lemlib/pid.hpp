@@ -1,8 +1,19 @@
 #pragma once
 
 namespace lemlib {
-    class PID {
+class PID {
     public:
+
+    float kP;
+    float kI;
+    float kD;
+
+    // optimizations
+    float windupRange;
+    bool signFlipReset;
+
+    float integral = 0;
+    float prevError = 0;
         /**
          * @brief Construct a new PID
          *
@@ -60,14 +71,5 @@ namespace lemlib {
          * @endcode
          */
         void reset();
-
-        float kP;
-        float kI;
-        float kD;
-        float windupRange;
-        bool signFlipReset;
-
-        float integral = 0;
-        float prevError = 0;
-    };
+};
 } // namespace lemlib
